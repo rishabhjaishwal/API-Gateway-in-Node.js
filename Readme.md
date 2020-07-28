@@ -1,4 +1,6 @@
 ![Publish](https://github.com/rishabhjaishwal/API-Gateway-in-Node.js/workflows/Publish/badge.svg)
+![Publish](https://www.code-inspector.com/project/11600/score/svg)
+![Publish](https://www.code-inspector.com/project/11600/status/svg)
 
 <div align=center>
 <h1>Concept & Working Code For API Gateway</h1>
