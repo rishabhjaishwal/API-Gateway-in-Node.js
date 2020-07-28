@@ -1,3 +1,5 @@
+![Publish](https://github.com/rishabhjaishwal/API-Gateway-in-Node.js/workflows/Publish/badge.svg?event=pull_request)
+
 <div align=center>
 <h1>Concept & Working Code For API Gateway</h1>
 <img src="./API_Gateway.png" alt="API Gateway" width="600px" height="450px" >
