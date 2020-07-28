@@ -1,4 +1,4 @@
-![Publish](https://github.com/rishabhjaishwal/API-Gateway-in-Node.js/workflows/Publish/badge.svg?event=pull_request)
+![Publish](https://github.com/rishabhjaishwal/API-Gateway-in-Node.js/workflows/Publish/badge.svg)
 
 <div align=center>
 <h1>Concept & Working Code For API Gateway</h1>
