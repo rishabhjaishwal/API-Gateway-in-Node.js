@@ -23,22 +23,22 @@ const handlerService = {
                 if(req.headers['x-access-token']) {
                     headers = { 
                         headers: {'x-access-token': req.headers['x-access-token'] }
-                    }
+                    };
                 }
 
                 // Requesting for Authorization and for resource acces payload
                 let authRequest = await axios({
                     method: 'get',
-                    url: `${mapping['authServer']}/api/validateUser`,
+                    url: `${mapping.authServer}/api/validateUser`,
                     responseType: 'json',
                     responseEncoding: 'utf8',
                     headers
-                }).catch(err => { throw new CustomError(404,err.message) });
+                }).catch(err => { throw new CustomError(404,err.message); });
 
                 // creating request payload for resource server
                 let body = {...req.body};
                 if(typeof authRequest.data === `object`) {
-                    body['authData'] = {...authRequest.data};
+                    body.authData = {...authRequest.data};
                 }
 
                 // After Authorization, Forwording resource to Resource Server
@@ -46,19 +46,19 @@ const handlerService = {
                     method: req.method,
                     url: `${mapping[isavailable.server]}/${isavailable.remainingPath}`,
                     data: body,
-                }).catch(err => {throw new CustomError(404,err.message)});
+                }).catch(err => {throw new CustomError(404,err.message);});
 
                 
                 res.json({
                     success: true,
                     data: resourceRequest.data,
-                })
+                });
             }
         } catch (error) {
             next(error);
         }
     }
-}
+};
 
 
 module.exports = handlerService;

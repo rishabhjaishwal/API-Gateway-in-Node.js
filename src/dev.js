@@ -1,11 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { requestHandler } = require("./requestHandler");
-const { handleError } = require("./helpers/error");
+const dotenv  = require('dotenv');
+dotenv.config();
 const cors = require("cors");
 var helmet = require('helmet');
 var compression = require('compression');
-const tokenValidator = require("./middleware/tokenValidator");
+
+const { requestHandler } = require("./requestHandler");
+const { handleError } = require("./helpers/error");
+const tokenValidator = require('./middleware/tokenValidator');
+
+
 
 // App initialization
 const app = express();
@@ -20,6 +25,8 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(tokenValidator);
+
+
 
 // Welcome route
 app.get("/", (req, res) => {
@@ -53,13 +60,13 @@ app.listen(PORT, HOST , () => {
   });
 
 process.on('uncaughtException', err => {
-      console.error(`Uncaught Exception thrown, error:${err}`)
+      console.error(`Uncaught Exception thrown, error:${err}`);
       process.exit(1);
 
 });
 
 process.on('unhandledRejection', err => {
-    console.error(`unhandledRejection thrown, error:${err}`)
+    console.error(`unhandledRejection thrown, error:${err}`);
   });
 
   module.exports = app;
